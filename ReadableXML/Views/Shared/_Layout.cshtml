@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ReadableXML</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-light bg-light">
+            <div class="container">
+                <form asp-controller="Home" asp-action="Index" method="post" enctype="multipart/form-data" class="form-label">
+                    <div class="input-group form-control-file">
+                        <input type="file" name="files" class="form-control m-2" accept=".xml">
+                        <button type="submit" class="btn btn-outline-danger m-2">Yükle</button>
+                    </div>
+                </form>
+                <div><img src="~/img/albaraka.png" style="width:50px; height:50px;" /></div>
+            </div>
+            <div>By: 2854</div>
+
+        </nav>
+    </header>
+    <main role="main">
+        @RenderBody()
+    </main>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,306 @@
+﻿@model Invoice
+@{
+    ViewData["Title"] = "XMLABLE";
+}
+
+
+@try
+{
+    @if (Model.FaturaOzellikleri.UUID != null || ViewBag.HASH != "")
+    {
+        @if (Model != null)
+        {
+            <div class="container">
+                <div class="row justify-content-start">
+                    <!--MÜŞTERİ VE TEDARİKÇİ BAŞLANGIÇ-->
+                    <div class="col-5">
+                        <!--TEDARİKÇİ START-->
+                        @if (@Model.Tedarikci.Unvan != string.Empty)
+                        {
+                            <hr style="border: 3px solid black;" />
+                            <strong>@Model.Tedarikci.Unvan</strong> <br />
+                        }
+                        @if (Model.Tedarikci.AdresCadde != string.Empty)
+                        {
+                            @Html.Raw(@Model.Tedarikci.AdresCadde + "\t")
+                        }
+                        @if (Model.Tedarikci.AdresBinaAdi != string.Empty)
+                        {
+                            @Html.Raw(@Model.Tedarikci.AdresBinaAdi + "\t")
+                        }
+                        @if (Model.Tedarikci.AdresBinaNo != string.Empty)
+                        {
+                            @Html.Raw(@Model.Tedarikci.AdresBinaNo + "\t")
+                        }
+                        @if (Model.Tedarikci.AdresOdaNo != string.Empty)
+                        {
+                            @Html.Raw(@Model.Tedarikci.AdresOdaNo + "\t")<br />
+                        }
+                        @if (Model.Tedarikci.AdresSemt != string.Empty)
+                        {
+                            @Html.Raw(@Model.Tedarikci.AdresSemt + "\t")
+                        }
+                        @if (Model.Tedarikci.AdresIlce != string.Empty)
+                        {
+                            @Html.Raw(@Model.Tedarikci.AdresIlce + "\t")
+                        }
+                        @if (Model.Tedarikci.AdresIl != string.Empty)
+                        {
+                            @Html.Raw(@Model.Tedarikci.AdresIl + "\t")<br />
+                        }
+                        @if (Model.Tedarikci.AdresPostaKodu != string.Empty)
+                        {
+                            @Html.Raw(@Model.Tedarikci.AdresPostaKodu + "\t") <br />
+                        }
+                        @if (Model.Tedarikci.IletisimTelefon != string.Empty || Model.Tedarikci.IletisimFax != string.Empty)
+                        {
+                            @Html.Raw("Telefon: " + @Model.Tedarikci.IletisimTelefon + " || Fax : " + @Model.Tedarikci.IletisimFax) <br />
+                        }
+                        @if (Model.Tedarikci.IletisimWeb != string.Empty)
+                        {
+                            @Html.Raw("Web : " + @Model.Tedarikci.IletisimWeb + "\t") <br />
+                        }
+                        @if (Model.Tedarikci.IletisimEmail != string.Empty)
+                        {
+                            @Html.Raw("Email : " + @Model.Tedarikci.IletisimEmail + "\t") <br />
+                        }
+                        @if (Model.Tedarikci.VergiDairesi != string.Empty)
+                        {
+                            @Html.Raw("Vergi Dairesi : " + @Model.Tedarikci.VergiDairesi + "\t") <br />
+                        }
+                        @if (Model.Tedarikci.Vkn != string.Empty)
+                        {
+                            @Html.Raw("VKN : " + @Model.Tedarikci.Vkn + "\t") <br />
+                        }
+                        @if (Model.Tedarikci.TicaretSicilNo != string.Empty)
+                        {
+                            @Html.Raw("Ticaret Sicil No  : " + @Model.Tedarikci.TicaretSicilNo + "\t") <br />
+                        }
+                        @if (Model.Tedarikci.MersisNo != string.Empty)
+                        {
+                            @Html.Raw("Mersis No : " + @Model.Tedarikci.MersisNo + "\t") <br />
+                        }
+                        @if (Model.FaturaOzellikleri.UUID != string.Empty)
+                        {
+                            <hr style="border: 3px solid black;" /><br />
+                            <!--TEDARİKÇİ BİTİŞ-->
+                            <hr style="border: 3px solid black;" /><br />
+                            <!--MÜŞTERİ BAŞLANGIÇ-->
+                            <strong>SAYIN</strong><br />
+                        }
+                        @if (Model.Musteri.Unvan != string.Empty)
+                        {
+                            @Html.Raw(@Model.Musteri.Unvan) <br />
+                        }
+                        @if (Model.Musteri.FamilyName != string.Empty || Model.Musteri.FirstName != string.Empty)
+                        {
+                            @Html.Raw("(" + @Model.Musteri.FirstName + " " + @Model.Musteri.FamilyName + ")")<br />
+                        }
+                        @if (Model.Musteri.AdresCadde != string.Empty)
+                        {
+                            @Html.Raw(@Model.Musteri.AdresCadde + "\t")
+                        }
+                        @if (Model.Musteri.AdresBinaAdi != string.Empty)
+                        {
+                            @Html.Raw(@Model.Musteri.AdresBinaAdi + "\t")
+                        }
+                        @if (Model.Musteri.AdresBinaNo != string.Empty)
+                        {
+                            @Html.Raw(@Model.Musteri.AdresBinaNo + "\t")
+                        }
+                        @if (Model.Musteri.AdresOdaNo != string.Empty)
+                        {
+                            @Html.Raw(@Model.Musteri.AdresOdaNo)<br />
+                        }
+                        @if (Model.Musteri.AdresSemt != string.Empty)
+                        {
+                            @Html.Raw(@Model.Musteri.AdresSemt + "\t")
+                        }
+                        @if (Model.Musteri.AdresIlce != string.Empty)
+                        {
+                            @Html.Raw(@Model.Musteri.AdresIlce + "\t")
+                        }
+                        @if (Model.Musteri.AdresIl != string.Empty)
+                        {
+                            @Html.Raw(@Model.Musteri.AdresIl + "\t")<br />
+                        }
+                        @if (Model.Musteri.AdresPostaKodu != string.Empty)
+                        {
+                            @Html.Raw(@Model.Musteri.AdresPostaKodu) <br />
+                        }
+                        @if (Model.Musteri.AdresPostaKodu != string.Empty)
+                        {
+                            @Html.Raw("Telefon : " + @Model.Musteri.AdresPostaKodu + " || Fax : " + @Model.Musteri.IletisimFax) <br />
+                        }
+                        @if (Model.Musteri.IletisimWeb != string.Empty)
+                        {
+                            @Html.Raw("Web : " + @Model.Musteri.IletisimWeb) <br />
+                        }
+                        @if (Model.Musteri.IletisimEmail != string.Empty)
+                        {
+                            @Html.Raw("Eposta: " + @Model.Musteri.IletisimEmail) <br />
+                        }
+                        @if (Model.Musteri.VergiDairesi != string.Empty)
+                        {
+                            @Html.Raw("Vergi Dairesi : " + @Model.Musteri.VergiDairesi) <br />
+                        }
+                        @if (Model.Musteri.Vkn != string.Empty)
+                        {
+                            @Html.Raw("VKN : " + @Model.Musteri.Vkn) <br />
+                        }
+                        @if (Model.Musteri.TicaretSicilNo != string.Empty)
+                        {
+                            @Html.Raw("Ticaret Sicil No  : " + @Model.Musteri.TicaretSicilNo) <br />
+                        }@if (Model.Musteri.MersisNo != string.Empty)
+                        {
+                            @Html.Raw("Mersis No : " + @Model.Musteri.MersisNo) <br />
+                        }
+                        @if (Model.FaturaOzellikleri.UUID != string.Empty)
+                        {
+                            <hr style="border: 3px solid black;" /><br />
+                        }
+                        <!--MÜŞTERİ BİTİŞ-->
+                    </div>
+                    <!--MÜŞTERİ VE TEDARİKÇİ BİTİŞ-->
+                    <!--MALİYE BAKANLIĞI BAŞLANGIÇ-->
+                    <div class="col-2">
+                        <img src="~/img/maliye.png" />
+                        <br />
+                        e-Arşiv Fatura
+                    </div>
+                    <!--MALİYE BAKANLIĞI BİTİŞ-->
+                    <!--FATURA ÖZELLİKLERİ BAŞLANGIÇ-->
+                    <div class="col-4">
+                        <div class="text-end">
+                            <!--UNVAN BÜYÜK BAŞLANGIÇ-->
+                            <p class="fs-1">
+                                @if (ViewBag.HASH != "")
+                                {
+                                    @Html.Raw(Model.Tedarikci.Unvan.Split(" ").ElementAt(0) + " " + 
+                                    @Model.Tedarikci.Unvan.Split(" ").ElementAt(1))
+
+                                }
+                                else
+                                {
+                                    <div class="alert alert-danger">Belgede HASH kodu yok. XML Geçerli değil.</div>
+
+                                }
+
+                            </p>
+                        </div>
+                        <br /> <br />
+                        <!--UNVAN BÜYÜK BİTİŞ-->
+                        <!--FATURA ÖZELLİKLERİ BAŞLANGIÇ-->
+                        ETTN: @Model.FaturaOzellikleri.UUID
+                        <table class="table table-bordered">
+                            <tr>
+                                <th scope="row">Özelleştirme No:</th>
+                                <td>@Model.FaturaOzellikleri.OzellestirmeNo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Senaryo:</th>
+                                <td>@Model.FaturaOzellikleri.Senaryo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Fatura Tipi:</th>
+                                <td>@Model.FaturaOzellikleri.FaturaTipi</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Fatura No:</th>
+                                <td>@Model.FaturaOzellikleri.FaturaNo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Fatura Tarihi:</th>
+                                <td>@Model.FaturaOzellikleri.FaturaTarihi</td>
+                            </tr>
+                        </table>
+                        <!--FATURA ÖZELLİKLERİ BİTİŞ-->
+                    </div>
+                    <!--FATURA ÖZELLİKLERİ BİTİŞ-->
+                </div>
+                <!--FATURA İÇERİK BAŞLANGIÇ-->
+                <div>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Sıra No</th>
+                                <th scope="col">Ürün / Hizmet</th>
+                                <th scope="col">Ürün / Hizmet Tanım</th>
+                                <th scope="col">Miktar</th>
+                                <th scope="col">Birim Fiyat</th>
+                                <th scope="col">KDV Oranı</th>
+                                <th scope="col">KDV Tutarı</th>
+                                <th scope="col">Ürün / Hizmet Tutarı</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var urun in Model.FaturaIcerik)
+                            {
+                                <tr>
+                                    <td>@urun.SiraNo</td>
+                                    <td>@urun.UrunHizmetAdi</td>
+                                    <td>@urun.UrunHizmetTanim</td>
+                                    <td>@urun.Miktar</td>
+                                    <td>@Html.Raw(urun.BirimFiyat + " " + Model.FaturaOzellikleri.FaturaPcn)</td>
+                                    <td>@urun.KdvOran</td>
+                                    <td>@Html.Raw(urun.KdvTutar + " " + Model.FaturaOzellikleri.FaturaPcn)</td>
+                                    <td>@Html.Raw(urun.UrunHizmetTutar + " " + Model.FaturaOzellikleri.FaturaPcn)</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <!--FATURA İÇERİK BİTİŞ-->
+                <!--FATURA TOPLAMLARI BAŞLANGIÇ-->
+                <div class="row"><div class="col-md-6 offset-md-6"></div></div>
+                <div class="col-md-6 offset-md-6">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th scope="row">Hizmet Toplam Tutarı</th>
+                            <td>@Html.Raw(Model.FaturaToplamlari.MalHizmetToplamtutar + " " + Model.FaturaOzellikleri.FaturaPcn)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Toplam İskonto</th>
+                            <td>@Html.Raw(Model.FaturaToplamlari.IndirimTutari + " " + Model.FaturaOzellikleri.FaturaPcn)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">KDV Matrahı</th>
+                            <td>@Html.Raw(Model.FaturaToplamlari.MalHizmetToplamtutar + " " + Model.FaturaOzellikleri.FaturaPcn)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Hesaplanan KDV</th>
+                            <td>@Model.FaturaToplamlari.HesaplananKdv</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Vergiler Dahil Toplam Tutar</th>
+                            <td>@Html.Raw(Model.FaturaToplamlari.OdenecekTutar + " " + Model.FaturaOzellikleri.FaturaPcn)</td>
+                        </tr>
+                    </table>
+
+                </div>
+                <!--FATURA TOPLAMLARI BİTİŞ-->
+                <!--FATURA NOTLARI BAŞLANGIÇ-->
+                <strong>Fatura Notları</strong><br />
+                <table class="table table-bordered">
+                    @foreach (var note in Model.OtherNotes)
+                    {
+                        <tbody>
+                            <tr><td>@note</td></tr>
+                        </tbody>
+                    }
+                </table>
+                <!--FATURA NOTLARI BİTİŞ-->
+            </div>
+        }
+    }
+    else
+    {
+        <div class="alert alert-danger">Belgede ETTN kodu yok. XML Geçerli değil.</div>
+    }
+
+}
+catch (Exception)
+{
+    @*<div class="alert alert-danger">Belgede ETTN kodu yok. XML Geçerli değil.</div>*@
+}
+
